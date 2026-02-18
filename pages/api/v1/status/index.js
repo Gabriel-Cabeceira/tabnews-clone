@@ -2,7 +2,7 @@ function status (request, response) {
 
     response.status(200).json(
         {
-            mensagem: "Top demais!"
+            mensagem: "Ménsâgem cõm àcéntuáção"
         }
     )
 }
