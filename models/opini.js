@@ -59,7 +59,6 @@ export function getDestinatariosFixture(scenario) {
     case "sem_titulo": {
       const registro = buildRegistro({
         CodigoDestinatario: "10000003",
-        Telefone: "5534999211470",
         CodigoControle: "20000003",
       });
       delete registro.TituloPesquisa;
@@ -78,7 +77,6 @@ export function getDestinatariosFixture(scenario) {
     case "sem_link": {
       const registro = buildRegistro({
         CodigoDestinatario: "10000005",
-        Telefone: "5534999211470",
         CodigoControle: "20000005",
       });
       delete registro.PathLinkPesquisa;
@@ -92,7 +90,7 @@ export function getDestinatariosFixture(scenario) {
     case "completo":
     default:
       return {
-        Total: 2,
+        Total: 1,
         Registros: [
           buildRegistro({
             CodigoDestinatario: "10000001",
@@ -100,13 +98,6 @@ export function getDestinatariosFixture(scenario) {
             PathLinkPesquisa: "aaaa1111bbbb2222/w",
             LinkPesquisa: "https://s.opini.one/aaaa1111bbbb2222/w",
             CodigoControle: "20000001",
-          }),
-          buildRegistro({
-            CodigoDestinatario: "10000002",
-            Telefone: "5534999211470",
-            PathLinkPesquisa: "cccc3333dddd4444/w",
-            LinkPesquisa: "https://s.opini.one/cccc3333dddd4444/w",
-            CodigoControle: "20000002",
           }),
         ],
       };
