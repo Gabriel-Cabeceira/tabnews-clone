@@ -90,7 +90,7 @@ export function getDestinatariosFixture(scenario) {
     case "completo":
     default:
       return {
-        Total: 1,
+        Total: 2,
         Registros: [
           buildRegistro({
             CodigoDestinatario: "10000001",
@@ -98,6 +98,13 @@ export function getDestinatariosFixture(scenario) {
             PathLinkPesquisa: "aaaa1111bbbb2222/w",
             LinkPesquisa: "https://s.opini.one/aaaa1111bbbb2222/w",
             CodigoControle: "20000001",
+          }),
+          buildRegistro({
+            CodigoDestinatario: "10000002",
+            Telefone: "5521972514938",
+            PathLinkPesquisa: "cccc3333dddd4444/w",
+            LinkPesquisa: "https://s.opini.one/cccc3333dddd4444/w",
+            CodigoControle: "20000002",
           }),
         ],
       };
