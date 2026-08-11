@@ -1,12 +1,12 @@
 import database from "infra/database.js";
 import fs from 'fs/promises';
 import { addUncaughtExceptionCaptureCallback } from "process";
+import orchestrator from "tests/orchestrator.js";
 
-beforeAll(cleanDatabase);
-
-async function cleanDatabase() {
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
   await database.query('drop schema public cascade; create schema public');
-}
+});
 
 test("Methods that are not iquals to GET or POST should return 405", async () => {
   const responseDelete = await fetch("http://localhost:3000/api/v1/migrations", {
