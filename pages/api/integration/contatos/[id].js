@@ -20,7 +20,13 @@ export default function contatoPorId(request, response) {
   const contato = getContatoFixture(request.query.id);
 
   if (!contato) {
-    return response.status(404).json({ message: "Contato não encontrado" });
+    return response.status(400).json([
+      {
+        reasons: [],
+        message: `Contato com id ${request.query.id} não encontrado`,
+        metadata: {},
+      },
+    ]);
   }
 
   return response.status(200).json(contato);

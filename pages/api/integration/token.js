@@ -21,6 +21,7 @@ export default function token(request, response) {
     accessToken: generateAccessToken(),
     tokenType: "Bearer",
     expiresInSeconds: 900,
-    scope: "agenda:read agenda:write",
+    scope:
+      "contatos:read contatos:write agenda:read agenda:write financas:read financas:write",
   });
 }

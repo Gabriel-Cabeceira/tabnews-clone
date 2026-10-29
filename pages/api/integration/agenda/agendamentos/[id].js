@@ -2,7 +2,6 @@ import {
   applyMockStatusOverride,
   getAgendamentoFixture,
   requireBearer,
-  resolveDia,
 } from "models/medx.js";
 
 export default function agendamentoPorId(request, response) {
@@ -18,9 +17,11 @@ export default function agendamentoPorId(request, response) {
     return;
   }
 
-  const dia = resolveDia(request.query.dia);
+  const agendamento = getAgendamentoFixture(request.query.id);
 
-  return response
-    .status(200)
-    .json(getAgendamentoFixture(request.query.id, dia));
+  if (!agendamento) {
+    return response.status(404).json({ message: "Agendamento não encontrado" });
+  }
+
+  return response.status(200).json(agendamento);
 }
