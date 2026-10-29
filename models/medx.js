@@ -161,8 +161,8 @@ const SETOR_2_ORDINAL = "Clínica 2º Andar";
 /**
  * Every row of the mock agenda. The ids are the same on any day, only the
  * dates change, so GET /agenda/agendamentos/{id} stays coherent with the list.
- * Row 1: the owner, alone in an exclusive setor. Every other phone uses DDD 00,
- * which can never exist. The rest covers every case of MEDX_AJUSTES.md: status
+ * Rows 1 and "Gabriel Moura" are real people in the "Clínica 15° Andar" setor;
+ * every other phone uses DDD 00, which can never exist. The rest covers every case of MEDX_AJUSTES.md: status
  * != 1 (number and text), status as text, positive and negative ids, patient
  * 0/null/unknown (400), unknown doctor and doctors named by usuarioNome,
  * nomeCompleto or neither, repeated patient, every phone fallback (celular,
@@ -334,6 +334,15 @@ const AGENDAMENTOS = [
     sms: "00900000019",
     nome: "PACIENTE TESTE UM",
     prontuario: 100000101,
+  },
+  {
+    id: 1275003019,
+    usuario: -609770001,
+    paciente: 700103,
+    setor: SETOR_15,
+    sms: "21972514938",
+    nome: "Gabriel Moura",
+    prontuario: 100000103,
   },
 ];
 
@@ -757,6 +766,11 @@ const CONTATOS = {
   700102: buildContato(700102, {
     nome: "PACIENTE TESTE DOIS",
     celular: "00900000002",
+  }),
+  700103: buildContato(700103, {
+    nome: "Gabriel Moura",
+    celular: "21972514938",
+    sexo: "M",
   }),
   700999: buildContato(700999, {
     nome: "NÃO AGENDAR",
